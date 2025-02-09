@@ -13,11 +13,16 @@ import { FormsModule } from '@angular/forms';
 })
 export class SenderMessageComponent {
   message: string = '';
+  value: number = 0;
 
   constructor(private messageService: MessageService) {}
 
   sendMessage() {
     this.messageService.sendMessage(this.message);
     this.message = '';
+  }
+
+  receiveValue(): void {
+    this.messageService.receiveValue(+this.value);
   }
 }
